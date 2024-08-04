@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\usepackage{sectsty}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\title{Gender Ratio Problem}
+\author{Yize Wang}
+\date{\today}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+\section{Problem Statement}
+Theoretically, a mother gives birth to a boy or girl with the same probability. The gender ratio of boys and girls is thus expected to be $0.5:0.5$ in a large population. What if every mother will not stop having a new child until she has a boy? Will the ratio be changed?
+
+\section{Solution}
+Let $N$ denote the number of mothers and assume they have new children simultaneously. There will be $N/2$ boys and girls in the first birth wave. For the $N/2$ mothers who do not have boys will have new $N/2/2$ boys and girls, and so on. \\
+The total number of girls $N_G$ can be obtained by the geometric series sum formula:
+\begin{align*}
+	N_G = \sum_{i}\frac{1}{2^i}N = \left( 1-\left( \frac{1}{2} \right)^i \right) N.
+\end{align*}
+Since each mother eventually has one and only one boy, the total number of boys is the same as mothers, i.e., $N_B = N$.\\
+The gender ratio $R$ is thus
+\begin{align*}
+	R =\frac{ N_G}{N_B} = \left( 1-\left( \frac{1}{2} \right)^i \right).
+\end{align*}
+We list the ratio values below for small $N$.
+\begin{center}
+	\begin{tabular}{|c| c c c c c|}
+		\hline
+		$N$ & 1           & 2           & 5           & 10          & 100         \\
+		\hline
+		$R$ & $0.33:0.67$ & $0.43:0.57$ & $0.49:0.51$ & $0.50:0.50$ & $0.50:0.50$ \\
+		\hline
+	\end{tabular}
+\end{center}
+Counter-intuitively, as $N$ grows, the ratio quickly approaches $0.5:0.5$. Therefore, in a large population, the evil reproductive policy above will not change gender ratio. \\
+However, since boys are always the last child in a family, the average age of boys will be less than that of girls, which will affect gender ratio in a long term (takes generations).
+
+
+\end{document}
